@@ -18,7 +18,7 @@ User.sync().then(() => {
   Schedule.sync();
   Comment.belongsTo(User, {foreignKey: 'userId'});
   Comment.sync();
-  Availability.belongsTo(User, {foreignKey: 'candidateId'});
+  Availability.belongsTo(User, {foreignKey: 'userId'});
   Candidate.sync().then(() => {
     Availability.belongsTo(Candidate, {foreignKey: 'candidateId'});
     Availability.sync();

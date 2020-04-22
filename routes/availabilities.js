@@ -12,7 +12,7 @@ router.post(
         const userId = req.params.userId;
         const candidateId = req.params.candidateId;
         let availability = req.body.availability;
-        availability = availability ? parseInt(availability) || 0;
+        availability = availability ? parseInt(availability) : 0;
 
         Availability.upsert({
             scheduleId: scheduleId,
@@ -20,7 +20,7 @@ router.post(
             candidateId: candidateId,
             availability: availability
         }).then(() => {
-            res.join({ status: 'OK', availability: availability });
+            res.json({ status: 'OK', availability: availability });
         });
     }
 );

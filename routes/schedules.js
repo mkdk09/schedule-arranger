@@ -49,7 +49,7 @@ router.get('/:scheduleId', authenticationEnsurer, (req, res, next) => {
             Candidate.findAll({
                 where: { scheduleId: schedule.scheduleId },
                 order: [['candidateId', 'ASC']]
-            }).then(candidates => {
+            }).then((candidates) => {
                 // データベースからその予定の全ての出欠を取得する
                 Availability.findAll({
                     include: [
